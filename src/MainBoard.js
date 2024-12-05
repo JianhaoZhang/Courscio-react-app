@@ -5,8 +5,11 @@ import './index.css';
 import axios from 'axios';
 import App from './App';
 import Search from './Search';
+import LogoLarge from './icons/Logo-l.png';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const API = '/v1/'
+
+const API = 'https://api.courscio.com/v1/'
 
 const querystring = require('query-string');
 
@@ -42,18 +45,33 @@ class MainBoard extends Component{
 //		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 		console.log(id_token)
 
-		var responsebody = await axios.post(API+'auth', querystring.stringify({
-			email: profile.getEmail(),
-			token: id_token
-		}))
+		var bodyFormData = new FormData();
+		bodyFormData.set('email',profile.getEmail());
+		bodyFormData.set('token',id_token);
+
+		var responsebody = await axios({
+				method: 'POST',
+				url: API + 'auth',
+				data: bodyFormData
+		})
 		.catch(function (error) {
 			console.log(error)
 		})
 		console.log(responsebody)
+		var id = -1
+		var auth = ""
+		var login = false
+		if (responsebody !== undefined){
+			id = responsebody.data.id
+			auth = responsebody.headers.authorization
+			login = true
+		}else{
+			alert("Failed to retrieve user info")
+		}
 		this.setState({
-			uid: responsebody.data.id,
-			login: true,
-			auth: responsebody.headers.authorization
+			uid: id,
+			login: login,
+			auth: auth
 		})
 
 		
@@ -75,7 +93,7 @@ class MainBoard extends Component{
 			console.log('gapi initialized');
 			try{
 				window.gapi.signin2.render('g-signin2', {
-		     	'width': 120,
+		     	'width': 150,
 		     	'height': 30,
 		     	'longtitle': true,
 		     	'onsuccess': this.onSignIn
@@ -148,13 +166,13 @@ class MainBoard extends Component{
 		return(
 			<div>
         <nav className="navbar navbar-expand-lg navbar-light">
-          <a className="navbar-brand nav-link mx-auto" href="home.html" id="symbol">
-            <img className="image-fluid" id="logo" src="/Logo.png" alt="logo"/>
-          </a>    
+          <Link to="/home" className="navbar-brand nav-link mx-auto" id="symbol">
+            <img className="image-fluid" id="logo" src={LogoLarge} alt="logo"/>
+          </Link>    
 
           <div className="mx-2 my-auto d-flex w-100 flex-last">
             <Search search_states={this.state} onSearch={this.handle_search} />
-          </div>  
+          </div>
 
           <button
             className="navbar-toggler"
@@ -169,9 +187,10 @@ class MainBoard extends Component{
 
           <div className="collapse navbar-collapse flex-unordered flex-sm-last" id="navbarSupportedContent">
             <div className="navbar-nav navbar-right mx-auto">
-              <a className="nav-item" href="/">Home</a>
+              <Link to="/home" className="nav-item" >Home</Link>
               <a className="nav-item" href="/">About</a>
               <a className="nav-item" href="/">Contact</a>
+
               <span><div
                 id='g-signin2' /></span>
             </div>

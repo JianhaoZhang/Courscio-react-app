@@ -8,7 +8,7 @@ html, body {
 }
 
 nav {
-	margin-bottom: 72px;
+	margin-bottom: 32px;
 }
 
 .nav-item {
@@ -16,8 +16,7 @@ nav {
   font-family: "Open Sans",sans-serif;
   color: #3d3d3d;
   font-size: 1.05em;
-  font-weight: bold !important;
-  color: black;
+  font-weight: bold;
 }
 
 .nav-item:hover {
@@ -33,13 +32,12 @@ nav {
 	margin-right: 0px;
 	margin-left: 0px;
 	padding-right: 0px;
-  padding-left: 0px;
-  border: none;
+	padding-left: 0px;
 }
 
 #header {
   color: #383838;
-  font-size: 3.5em;
+  font-size: 3em;
 }
 
 .container.col-xs-12.col-sm-12.col-md-12.col-lg-12 {
@@ -57,8 +55,8 @@ nav {
 }
 
 #logo{
-	height: 5.5em;
-	margin: 0.7em 0 0.7em 0;
+	height: 4.3em;
+	margin: 0.5em 0 0.5em 0;
 }
 
 .btn-light {
@@ -68,17 +66,7 @@ nav {
 
 #sloganRow {
 	margin-bottom: 3.5% !important;
-}
-
-.custom-cont {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  margin-bottom: 18vh;
-  width: 90vw;
-  /* height: 50vh; */
-  max-width: 1500px;
+	margin-left: 0px;
 }
 
 #findCourse {
@@ -86,15 +74,17 @@ nav {
 }
 
 .btn {
-  width: 400px;
-  padding: 18px 0px 18px 0px;
+    width: 370px;
+    padding: 18px 0px 18px 0px;
 }
 
 .btn-danger {
+    /*width: 100%;*/
+    /*height: 75%;*/
     margin-top: 8%;
     background-color: #E38D93 !important;
     border: solid 3px #E25A64;
-    font-size: 2.2em;
+    font-size: 1.8em;
     font-weight: bold;
     border-radius: 0px;
 }
@@ -109,7 +99,7 @@ nav {
 }
 
 .navbar-custom {
-  padding: 18px 64px !important;
+  padding: 0 3em !important;
 }
 
 h1 {
@@ -126,29 +116,27 @@ p {
 	line-height: 1.6;
 }
 
+#bannerCard {
+	margin-left: 0px;
+	margin-right: 0px;
+}
 .card {
 	border-color: transparent;
 }
 
 .card-title {
-	font-size: 36px;
-  text-align: left;
-  font-weight: medium;
+	font-size: 26px;
+	text-align: left;
 }
 
 .card-text {
 	font-size: 16px;
-  line-height: 95%;
+    line-height: 95%;
 }
 
 .card-img-top {
-	width: 75%;
-  height: auto;
-  margin: 0 auto;
-}
-
-.no-pad {
-  padding: 0 !important;
+	width: 110%;
+	height: auto;
 }
 
 #findCourse-button {
@@ -277,14 +265,9 @@ p {
 	transition:all 1s ease .8s
 }
 
-footer {
-  padding: 16px 0;
-  color: white;
-  font-size: 14px;
-}
 
 footer a {
-  color: white;
+	color: white;
 }
 
 @media only screen and (max-width:990px){

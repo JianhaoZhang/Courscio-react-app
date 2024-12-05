@@ -1,5 +1,25 @@
 @import '~antd/dist/antd.css';
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #87AFC7; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3090C7; 
+}
+
 .App {
   margin-top: 24px;
 }
@@ -12,7 +32,7 @@
 
 .formGroup {
   text-align: left;
-  height: 3.5em;
+  height: 4em;
 }
 
 .portrait {
@@ -30,18 +50,20 @@
   text-align: middle;
 }
 
-#filterWord {
+.filterLarge {
   font-family: "Helvetica Neue", Helvetica;
-  font-weight: 600;
-  font-size: 1.5em;
+  font-weight: bold;
+  font-size: 1.15em;
+  margin: 8px 0;
   color: #3f444c;
+  padding-left: 1.1em;
 }
 
 .formControl {
   font-family: "Open Sans",sans-serif;
   font-size: 1em;
   color: gray;
-  height: 3em;
+  height: 3.5em;
 }
 
 option {
@@ -49,7 +71,26 @@ option {
   box-shadow: transparent;
 }
 
+.at-calendar {
+  background: #7EA4DE;
+  padding: 0 18px;
+  border: solid 1px #777;
+  height: 54px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.7em;
+  align-self: flex-end;
+}
+
+.btn-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .sliderbox {
+  font-weight: bold;
   margin: 32px 16px;
 }
 
@@ -58,7 +99,7 @@ option {
 }
 
 #weekBar {
-  padding-left: 10px;
+  font-size: 1.7em;
 }
 
 .btn-group-toggle, .btn-toolbar {
@@ -72,10 +113,12 @@ option {
 .noCourse-card {
   border-color: transparent;
   box-shadow: 0px 0px 0px transparent !important;
+  height: 600px;
 }
 
 .card-img-bottom {
   width: 60% !important;
+  max-width: 450px;
   height: auto;
   margin: auto;
 }
@@ -94,7 +137,7 @@ option {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-group {
   background-color: transparent !important;
-  color: #91d5ff !important; 
+  color: #85A8DC !important; 
   border-color: transparent !important;
   box-shadow: none;
 }
@@ -106,6 +149,77 @@ option {
   height: 44px;
   font-weight: bold;
   margin: 18px 0;
+}
+
+.schedule-course {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+}
+
+.line {
+  background: #7EA4DE;
+  border-radius: 5px;
+  width: 100%;
+  height: 3px;
+}
+
+.remove, .send-up, .send-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E25A64;
+  width: 22px;
+  height: 25px;
+  margin: 6px;
+  border: solid 1px #555;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+}
+
+.bullet {
+  min-width: 100px;
+}
+
+.send-up, .send-down {
+  background: #31906F;
+}
+
+#rate-popover {
+  width: 100px;
+}
+
+.popovers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.comment-profile {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+
+.dash-labels {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.dash-container {
+  height: 120px;
+  width: 162px;
+  overflow: auto;
 }
 
 .card {
@@ -120,6 +234,7 @@ option {
 .card-title {
   font-size: 20px;
   text-align: left;
+  font-family: 'Helvetica Neue';
 }
 
 .card-subtitle {
@@ -141,100 +256,208 @@ td {
 
 .rowTitle{
   font-weight: bold;
-  text-align: right;
-  padding-right: 8px;
+  margin: 0;
 }
 
-table {
-  margin-bottom: 8px;
+.card-text__row {
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0;
 }
 
-#wishlist {
+.text-margin {
+  margin: 0 8px;
+  
+}
+.text-hidden {
+  height: 3em;
+  text-overflow: ellipsis;
+  overflow:hidden;
+}
+.text-hidden:hover {
+  color: #151B54; 
+  overflow: visible; 
+  white-space: normal;
+  height:auto; /* just added this line */
+}
+
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+.personalWebsiteButton {
+  background-color: #7EA4DE;
+  border-color: #7EA4DE;
+  margin: 18px 0 !important;
+  width: 80%;
+  font-size: 1.3em;
+  font-weight: bold;
+  height: 48px;
+}
+
+#result-pool {
+  max-height: 700px;
+  overflow-y: auto;
+  box-shadow: 0 0 8px 8px white inset;
+}
+
+#wishlist, #wishlistMod {
   background: #31906F;
 }
 
-#select {
-  background:#E25A64;
-  opacity: 63%;
+#select, #selectMod {
+    background: #E25A64;
+    opacity: 63%;
+    /*padding: .25rem .5rem;
+    width: 13.2em;
+    font-size: .875rem;
+    line-height: 1.5;*/
+    /*border-radius: .2rem;*/
 }
 
-#syllabus {
-  background:#7EA4DE;
+#syllabus_pop {
+    background: #7EA4DE;
+    margin: 0 12px;
+    font-weight: bold;
+    border: none;
+    min-height: 45px;
 }
 
-#select, #wishlist, #syllabus {
-  margin: 0 12px;
+/*#select, #wishlist {
+    width: 11.2em;
+    font-size: .875rem;
+    line-height: 0.75;
+    margin: 0 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 0 0 0px;
+    min-height: 20px;
+    padding: 0 0 0 0em;
+}*/
+
+#select, #wishlist, #syllabus_pop, #selectMod, #wishlistMod {
+  /* margin: 8px 12px; */
   font-weight: bold;
   border: none;
-  min-height: 45px;
+  border-radius: 0 0 0 0px;
+  min-height: 28px;
+  padding: 0 0 0 0em;
+  /*padding: .25rem .9rem;*/
+  /*padding: 0 0 0 0px;*/
+  width: 9em;
+  font-size: .875rem;
+  line-height: 0.75;
+  /*border-style: solid;*/
+}
+
+#selectMod, #wishlistMod {
+  margin-left: 130px;
+}
+
+#select, #wishlist {
+  margin: 32px;
+}
+
+#syllabus_pop {
+  /* position: absolute;
+  bottom: 49%;
+  bottom: 6%;
+  right: 18%; */
+  height: 2.5em;
+  width: 7.9em;
+  /*padding: .375rem .75rem .575rem;*/
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 16px 24px;
+  border-radius: .25rem;
+  /*right: 17%;*/
+  /*width: 10.9em;*/
+}
+
+#rateButton {
+  margin: 10px 0px;
+  background-color: #7EA4DE;
+  font-weight: bold;
+  border: none;
+  border-radius: 0 0 0 0px;
+  min-height: 25px;
+  padding: 0 0 0 0em;
+  /*padding: .25rem .9rem;*/
+  /*padding: 0 0 0 0px;*/
+  width: 6.9em;
+  font-size: .875rem;
+  line-height: 1;
+  /*border-style: solid;*/
 }
 
 .custom-modal {
   border: none;
+  overflow: hidden;
 }
 
 .cardButton {
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 45px;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+}
+
+.cardButtonMod {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 45px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.prof__subtext {
+  text-align: left;
+  width: 80%;
+  margin: 0 24px;
 }
 
 #courseInfo {
   margin-top: 20px;
 }
 
-#flag {
-  width: 80px;
-  height: 120px;
-  margin-left: 25px;
-  box-sizing: content-box;
-  position: relative;
-  background: skyblue;
-  color: white;
-  font-size: 36px;
+.rating-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 8px;
+  align-content: center;
+  align-items: center;
   text-align: center;
-  text-align: top;
-  top: -2px;
 }
 
-#flag:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 0;
-  border-bottom: 32px solid white;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
+.rating {
+  font-size: 3em;
+  color: #7EA4DE;
+  font-weight: 700;
 }
 
-#flagdiv {
-  margin-top: 0px;
-  padding-top: 0px;
+.rating__subtitle {
+    font-size: 1em;
+    color: #707070;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-#flagtext {
-  position: relative;
-  font-size: 12px;
-  color: white;
-  display: inline-block;
-  padding-left: 1.5px;
-  top: -10px;
-  font-weight: bold;
+.rating__subtitle--sub {
+    font-size: .9em;
+    /*font-weight: 600;*/
+    white-space: nowrap;
+    color: #707070;
+    /*white-space: nowrap;*/
+    /*color: red;*/
 }
 
-#courseScore {
-  position: relative;
-  top: -20px;
-  font-weight: bold;
-}
-
-#overallRating {
-  font-size: 12px;
-}
 
 .flip-main {
   -webkit-transition: 1s;
@@ -257,9 +480,9 @@ table {
 }
 
 .modal-dialog {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  margin:0;
+  margin:0 auto;
   padding:0;
 }
 
@@ -276,21 +499,33 @@ table {
   margin-right: 30px;
 }
 
-.cardButtonMod {
-  margin: 20px auto;
-}
-
 .card_padding {
-  padding: 16px;
+  padding: 16px 16px 0 16px;
 }
 
 .panel-body {
+  margin-top: 32px;
   width: 100%;
+}
+
+.media-list {
+  padding: 0;
+  height:400px;
+  overflow-y:auto;
+}
+
+.media-body {
+  border: solid 1px #707070;
 }
 
 .btn-info {
   float: right;
+  /*width:5.5em;*/
 }
+
+
+
+
 
 @media only screen and (max-width:768px){
   #extraBtn {
